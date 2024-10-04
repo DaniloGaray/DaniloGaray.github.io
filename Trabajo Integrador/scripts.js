@@ -1,19 +1,47 @@
-let images = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg'];
-let currentImageIndex = 0;
+
+
+
+let imagenes = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg'];
+let contador = 0;
 
 const carrouselImg = document.getElementById('carrousel-img');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
+const anterior = document.getElementById('prev');
+const siguiente = document.getElementById('next');
 
-prevButton.addEventListener('click', () => {
-  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-  carrouselImg.src = images[currentImageIndex];
+// Función para actualizar la imagen del carrusel
+function actualizarImagen() {
+    carrouselImg.src = imagenes[contador];
+}
+
+// Evento para el botón anterior
+anterior.addEventListener('click', () => {
+    contador = (contador - 1 + imagenes.length) % imagenes.length;
+    actualizarImagen();
+    reiniciarAuto(); // Reiniciar el autoavance
 });
 
-nextButton.addEventListener('click', () => {
-  currentImageIndex = (currentImageIndex + 1) % images.length;
-  carrouselImg.src = images[currentImageIndex];
+// Evento para el botón siguiente
+siguiente.addEventListener('click', () => {
+  contador = (contador + 1) % imagenes.length;
+    actualizarImagen();
+    reiniciarAuto(); // Reiniciar el autoavance
 });
+
+// Función para mover automáticamente el carrusel
+let autoAdvance = setInterval(() => {
+    contador = (contador + 1) % imagenes.length;
+    actualizarImagen();
+}, 3000); // Cambia cada 3000 ms (3 segundos)
+
+// Función para reiniciar el autoavance
+function reiniciarAuto() {
+    clearInterval(autoAdvance); // Detener el avance automático
+    autoAdvance = setInterval(() => {
+        contador = (contador + 1) % imagenes.length;
+        actualizarImagen();
+    }, 1000); // Reiniciar el intervalo
+}
+
 
 
 const form = document.getElementById('contactForm');
