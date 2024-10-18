@@ -1,69 +1,118 @@
 
 
 
-let imagenes = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg'];
+let imagenes = ['imagen1gourmet.jpeg', 'imagen2gourmet.jpg', 'imagen3gourmet.jpg', 'imagen4gourmet.jpg', 'imagen5gourmet.jpg'];
 let contador = 0;
 
-const carrouselImg = document.getElementById('carrousel-img');
-const anterior = document.getElementById('prev');
-const siguiente = document.getElementById('next');
+let carrouselImg = document.getElementById('carrousel-img');
+let anterior = document.getElementById('prev');
+let siguiente = document.getElementById('next');
 
-// Función para actualizar la imagen del carrusel
+
 function actualizarImagen() {
     carrouselImg.src = imagenes[contador];
 }
 
-// Evento para el botón anterior
+
 anterior.addEventListener('click', () => {
     contador = (contador - 1 + imagenes.length) % imagenes.length;
     actualizarImagen();
-    reiniciarAuto(); // Reiniciar el autoavance
+    reiniciarAuto(); 
 });
 
-// Evento para el botón siguiente
+
 siguiente.addEventListener('click', () => {
   contador = (contador + 1) % imagenes.length;
     actualizarImagen();
-    reiniciarAuto(); // Reiniciar el autoavance
+    reiniciarAuto(); 
 });
 
-// Función para mover automáticamente el carrusel
+
 let autoAdvance = setInterval(() => {
     contador = (contador + 1) % imagenes.length;
     actualizarImagen();
-}, 3000); // Cambia cada 3000 ms (3 segundos)
+}, 3000); 
 
-// Función para reiniciar el autoavance
+
 function reiniciarAuto() {
-    clearInterval(autoAdvance); // Detener el avance automático
+    clearInterval(autoAdvance); 
     autoAdvance = setInterval(() => {
         contador = (contador + 1) % imagenes.length;
         actualizarImagen();
-    }, 1000); // Reiniciar el intervalo
+    }, 1000); 
 }
 
 
 
-const form = document.getElementById('contactForm');
-const result = document.getElementById('result');
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
 
-  const nombre = document.getElementById('nombre').value;
-  const direccion = document.getElementById('direccion').value;
-  const email = document.getElementById('email').value;
-  const celu = document.getElementById('celu').value;
+function validar(){
+  let bandera = false;
 
-  if (nombre && direccion && email && celu) {
-    const resultHtml = `
-      <p><strong>Nombre:</strong> ${nombre}</p>
-      <p><strong>Direccion:</strong> ${direccion}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Celular:</strong> ${celu}</p>
-    `;
-    result.innerHTML = resultHtml;
-  } else {
-    result.innerHTML = '<p style="color:red;">Por favor, complete todos los campos correctamente.</p>';
+  let nombre = document.getElementById('nombre');
+  let direccion = document.getElementById('direccion');
+  let email = document.getElementById('email');
+  let celu = document.getElementById('celu');
+
+  let validacionNombre =/^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,}$/;  
+  let validacionDireccion = /^[A-Za-z0-9ÁÉÍÓÚáéíóúñÑ\s,'-]{5,100}$/;
+  let validacionEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+;
+  let validacionCelular = /^[0-9]{7,15}$/;
+
+  if (!validacionNombre.test(nombre.value)) {
+    document.getElementById('errorNombre').style.display = 'block';
+    document.getElementById('nombre').style.border = '1px solid red';
+    bandera=true;
   }
-});
+
+  if (!validacionDireccion.test(direccion.value)) {
+    document.getElementById('errorDireccion').style.display = 'block';
+    document.getElementById('direccion').style.border = '1px solid red';
+    bandera=true;
+  }
+
+  if (!validacionEmail.test(email.value)) {
+    document.getElementById('errorEmail').style.display = 'block';                
+    document.getElementById('email').style.border = '1px solid red';
+    bandera=true;
+  }
+
+  if (!validacionCelular.test(celu.value)) {
+    document.getElementById('errorCelu').style.display = 'block';
+    document.getElementById('celu').style.border = '1px solid red';
+    bandera = true;
+  }
+
+  if (bandera === false) {
+    let result = document.getElementById('result');
+    let texto = document.createElement('h2');
+    texto.innerHTML = 'Gracias '+ nombre.value+' por ponerte en contacto con Delicias Gourmet, pronto nos pondremos en contacto con '+ email.value+' .';
+    result.appendChild(texto);
+    result.style.display = 'block';
+
+    nombre.value="";
+    direccion.value="";
+    email.value="";
+    celu.value="";
+  }
+  return false;
+
+}
+function limpiar(event){
+  document.getElementById('errorNombre').style.display = 'none';
+  document.getElementById('nombre').style.border = ' 1px solid #ccc';
+
+  document.getElementById('errorDireccion').style.display = 'none';
+  document.getElementById('direccion').style.border = ' 1px solid #ccc';
+
+  document.getElementById('errorEmail').style.display = 'none';
+  document.getElementById('email').style.border = '1px solid #ccc';
+
+  document.getElementById('errorCelu').style.display = 'none';
+  document.getElementById('celu').style.border = '1px solid #ccc';
+
+  document.getElementById('result').style.display = 'none';
+
+  
+}
