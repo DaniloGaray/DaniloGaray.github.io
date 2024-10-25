@@ -1,72 +1,87 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    
-  }
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
   
-  header {
-    background-color: white;
-    padding: 15px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  nav ul li {
-    margin: 0 10px;
-  }
-  
-  nav ul li a {
-    color: red;
-    text-decoration: underline;
-    font-weight: bold;
-    
-  }
-  .menu li a img{
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-  }
-  
-  
-  h1, h2 {
-    text-align: center;
-    color: #444;
-  }
-  
-  p {
-    text-align: center;
-    line-height: 1.6;
-  }
-  
-  .intro {
-    background-color: #e8f0fe;
-    padding: 20px;
-  }
-  
-  .principal {
-    padding: 20px;
-  }
+}
 
-  .mobiliario {
-    display: flex;
-    flex-direction: row;
-    margin: 20px auto;
-  }
+header {
+  background-color:  rgb(226, 250, 159);
+  padding: 15px;
+}
 
-  #mobiliarioimg {
-    width: 200px;
-    height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+
+  
+}
+.menu li a img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+
+}
+
+
+h1, h2 {
+  text-align: center;
+  color: #444;
+}
+
+p {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.intro {
+  background-color: #e8f0fe;
+  padding: 20px;
+}
+
+.principal {
+  padding: 20px;
+  background-color: #b8d5d2;
+}
+
+.mobiliario {
+  display: flex;
+  flex-direction:row;
+  border: 10px solid rgb(226, 250, 159);
+  width: 300 px;
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+
+.mobi {
+  box-sizing:border-box;
+  opacity: .9;
+  width: 400px;
+  height: 350px;
+  background:rgb(226, 250, 159);
+  flex-grow: 1;
+}
+
+
+.mobiliarioimg {
+  width: 400px;
+  height: 350px;
+  border-radius: 10px;
+}
 
   .carrousel {
     display: flex;
