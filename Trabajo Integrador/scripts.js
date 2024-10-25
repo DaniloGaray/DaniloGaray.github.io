@@ -1,7 +1,7 @@
 
 
 
-let imagenes = ['imagen1gourmet.jpeg', 'imagen2gourmet.jpg', 'imagen3gourmet.jpg', 'imagen4gourmet.jpg', 'imagen5gourmet.jpg'];
+let imagenes = ['img/imagen1gourmet.jpeg', 'img/imagen2gourmet.jpg', 'img/imagen3gourmet.jpg', 'img/imagen4gourmet.jpg', 'img/imagen5gourmet.jpg'];
 let contador = 0;
 
 let carrouselImg = document.getElementById('carrousel-img');

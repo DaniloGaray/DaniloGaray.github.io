@@ -123,6 +123,10 @@ p {
     background-color: #0056b3;
   }
   
+  .articulo {
+    background-color:  #b8d5d2;
+  }
+
   .platos {
     display: flex;
     justify-content: space-around;
@@ -195,6 +199,10 @@ p {
     color: #444;
   }
   
+  .contacto {
+    background-color: rgb(226, 250, 159);
+  }
+
   .formulario-contacto {
     padding: 20px;
     max-width: 600px;
