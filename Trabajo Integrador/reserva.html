@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contacto</title>
+    <link rel="icon" href="logoBlanco.jpg" type="image/png">
+
+</head>
+<body>
+    <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html"><img src="Inicio.svg" alt="Home">Inicio</a></li>
+        <li><a href="articulo.html"><img src="Platos (1).svg" alt="Platos">Platos</a></li>
+        <li><a href="contacto.html"><img src="Contacto.svg" alt="Contacto">Contacto</a></li>
+        <li><a href="reserva.html"><img src="img/reserva.svg" alt="Reserva">Reserva</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contacto">
+    <section class="intro">
+      <h1>Reservas</h1>
+      <p>Por favor, completa tus datos y elegi el dia perfecto para visitarnos y con mucho gusto reservaremos tu lugar.</p>
+    </section>
+
+    <section class="formulario-contacto">
+      <form id="contactForm" novalidate onsubmit="return validarReserva()">
+        <div>
+        <label for="nombreA">Nombre:</label>
+        <input type="text" id="nombreA" name="nombreA" onfocus="limpiarR(event)">
+        </div>
+        <div id="errorNombreA" class="error" >* * Nombre incorrecto, ingrese de nuevo.</div>
+        <div>
+        <label for="fecha">Fecha de Reserva:</label>
+        <input type="date" id="fecha" name="Fecha" onfocus="limpiarR(event)">
+        </div>
+        <div id="errorFecha" class="error">* Fecha invalida, ingrese de nuevo.</div>
+        <div>
+        <label for="personas">Cantidad de Personas:</label>
+        <input type="number" id="personas" name="personas" min="1" max="20" onfocus="limpiarR(event)">
+        </div>   
+        <div id="errorPersonas" class="error">* Cantidad de personas invalido, ingrese de nuevo.</div>
+        <div>        
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" onfocus="limpiarR(event)">
+      </div>
+      <div id="errorCorreo" class="error">* Email invalido, ingrese de nuevo.</div>
+      <div>
+        <label for="tel">Teléfono:</label>
+        <input type="tel" id="tel" name="tel" onfocus="limpiarR(event)">
+      </div>
+      <div id="errorTel" class="error">* Numero invalido, ingrese de nuevo.</div>
+      <div><button type="submit">Reservar</button></div>
+      </form>
+
+      <div id="resultado"></div>
+
+    </section>         
+    <section class="mobiliario">
+        <div class="mobi">
+          <img class="mobiliarioimg" src="img/comida1.jpeg" alt="Imagen del mobiliario">
+        </div>
+        <div class="mobi">
+          <img class="mobiliarioimg" src="img/postre1.jpg" alt="Imagen del mobiliario">
+        </div>          
+        <div class="mobi">
+          <img class="mobiliarioimg" src="img/postre2.jpg" alt="Imagen del mobiliario">
+        </div>
+        <div class="mobi">
+          <img class="mobiliarioimg" src="img/comida2.jpg" alt="Imagen del mobiliario">
+        </div>  
+
+
+  </main>
+  <footer class="pie">By Gallardo Diego y Garay Danilo</footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
